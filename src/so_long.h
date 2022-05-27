@@ -15,9 +15,17 @@
 
 # include "../minilibx-linux/mlx.h"
 # include "../libft/libft.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+
+typedef struct s_mlx
+{
+	void	*mlx_ptr;
+	void	*win_ptr;
+}	t_mlx;
 
 typedef struct s_start
 {
@@ -31,11 +39,11 @@ typedef struct s_escape
 	int	y;
 }	t_escape;
 
-typedef struct s_collectible
+typedef struct s_collect
 {
 	int	x;
 	int	y;
-}	t_collectible;
+}	t_collect;
 
 typedef struct s_map
 {
@@ -47,14 +55,15 @@ typedef struct s_map
 	int				nb_starts;
 	t_escape		*escapes;
 	int				nb_escapes;
-	t_collectible	*collectibles;
-	int				nb_collectibles;
+	t_collect	*collects;
+	int				nb_collects;
 
 }	t_map;
 
 typedef struct s_game
 {
 	t_map	*map;
+	t_mlx	*mlx;
 }	t_game;
 
 void	ft_error(int error, t_game *game);
@@ -67,5 +76,8 @@ void	map_init(t_map *map);
 //files prototypes
 void	ft_files_inspector(t_game *game, char **argv);
 void	ft_map_parsing(t_game *game);
+void	map_save_objects(t_map *map, t_game *game);
 
+//window
+void	open_window(t_game *game);
 #endif

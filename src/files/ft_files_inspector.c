@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:47:56 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/05/26 17:30:09 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/05/27 14:34:42 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	ft_count_map_x(t_game *game)
 			game->map->matrix[count][i] = line[i];
 		game->map->x = i;
 		free(line);
-		line == NULL;
+		line = NULL;
 		count++;
 	}
 	if (close(fd) == -1)

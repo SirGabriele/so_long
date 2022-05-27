@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:43:24 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/05/26 15:43:30 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/05/27 14:37:03 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ static void	error_base(int error)
 	char	*error_base[11];
 
 	error_base[1] = "Wrong number of arguments";
-	error_base[2] = "";
-	error_base[3] = "";
+	error_base[2] = "mlx_ptr == NULL";
+	error_base[3] = "win_ptr == NULL";
 	error_base[4] = "";
 	error_base[5] = "";
 	error_base[6] = "";

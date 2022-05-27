@@ -12,34 +12,37 @@
 
 #include "so_long.h"
 
-static	void	clear_matrix(t_map *map)
+static void	clear_mlx(t_mlx *mlx)
 {
-	int	i;
-
-	i = -1;
-	while (map->matrix[++i] != NULL)
-		free(map->matrix[i]);
-	free(map->matrix);
+	free(mlx->mlx_ptr);
+	free(mlx->win_ptr);
+	free(mlx);
 }
 
 static	void	clear_map(t_map *map)
 {
+	int	i;
+	
+	i = -1;
 	free(map->name);
 	if (map->matrix)
-		clear_matrix(map);
-	if (map->starts)
-		printf("test");
-	if (map->escapes)
-		printf("test");
-	if (map->collectibles)
-		printf("test");
+	{
+		while (map->matrix[++i] != NULL)
+			free(map->matrix[i]);
+		free(map->matrix);
+	}
+	free(map->starts);
+	free(map->escapes);
+	free(map->collects);
 	free(map);
 }
 
 void	clear_game(t_game *game)
 {
-	if (game->map)
+	if (game->map != NULL)
 		clear_map(game->map);
+	if (game->mlx != NULL)
+		clear_mlx(game->mlx);
 	free(game);
 	exit(0);
 }

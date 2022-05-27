@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/05/26 16:55:59 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/05/27 14:33:41 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,18 +17,22 @@ SRC = main.c             \
 	  clear_game.c
 
 FILES = ft_files_inspector.c     \
-	    ft_map_parsing.c
+	    ft_map_parsing.c         \
+		map_save_objects.c      
 
 INIT = game_init.c				\
 	   map_init.c
 
-SRCS = $(addprefix "src/", $(SRC))		   \
-	   $(addprefix "src/files/", $(FILES))  \
-	   $(addprefix "src/init/", $(INIT))
+WINDOW = open_window.c			\
+
+SRCS = $(addprefix "src/", $(SRC))		     \
+	   $(addprefix "src/files/", $(FILES))   \
+	   $(addprefix "src/init/", $(INIT))     \
+	   $(addprefix "src/window/", $(WINDOW)) 
 
 CC =	gcc
 
-FLAGS =	-Wall -Wextra -Werror
+FLAGS =	-Wall -Wextra -Werror -g
 
 OBJS =	$(SRCS:.c=.o)
 
@@ -55,7 +59,7 @@ re: fclean all
  
 $(NAME):
 	@make -C libft --no-print-directory
-	@$(CC) $(SRCS) -g -Llibft -lft -Lminilibx-linux -lmlx_Linux -L/usr/lib -Iminilibx-linux -Ilibft -lXext -lX11 -lm -lz -o $(NAME)
+	@$(CC) $(FLAGS) $(SRCS) -Llibft -lft -Lminilibx-linux -lmlx_Linux -L/usr/lib -Iminilibx-linux -Ilibft -lXext -lX11 -lm -lz -o $(NAME)
 	@echo "\033[0;32m~*~*~*~*~*~*~*~*~*~*~*~*~*~*~"
 	@echo "*                           *"
 	@echo "~  Compilation terminated!  ~"

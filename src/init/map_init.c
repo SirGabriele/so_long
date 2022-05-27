@@ -22,6 +22,6 @@ void	map_init(t_map *map)
 	map->nb_starts = 0;
 	map->escapes = NULL;
 	map->nb_escapes = 0;
-	map->collectibles = NULL;
-	map->nb_collectibles = 0;
+	map->collects = NULL;
+	map->nb_collects = 0;
 }
