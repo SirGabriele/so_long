@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_H
-# define HEADER_H
+#ifndef SO_LONG_H
+# define SO_LONG_H
 
 # include "../minilibx-linux/mlx.h"
 # include "../libft/libft.h"
@@ -26,6 +26,14 @@ typedef struct s_mlx
 	void	*mlx_ptr;
 	void	*win_ptr;
 }	t_mlx;
+
+typedef struct s_img
+{
+	void	*img;
+	char	*p;
+	int		w;
+	int		h;
+}	t_img;
 
 typedef struct s_start
 {
@@ -55,15 +63,22 @@ typedef struct s_map
 	int				nb_starts;
 	t_escape		*escapes;
 	int				nb_escapes;
-	t_collect	*collects;
+	t_collect		*collects;
 	int				nb_collects;
-
 }	t_map;
 
 typedef struct s_game
 {
 	t_map	*map;
 	t_mlx	*mlx;
+	t_img	*walls;
+	t_img	*tiles;
+	t_img	*escapes;
+	t_img	*collects;
+	t_img	*left;
+	t_img	*right;
+	t_img	*up;
+	t_img	*down;
 }	t_game;
 
 void	ft_error(int error, t_game *game);
@@ -72,6 +87,11 @@ void	clear_game(t_game *game);
 //Init prototypes
 void	game_init(t_game *game);
 void	map_init(t_map *map);
+void	init_walls(t_game *game);
+void	init_tiles(t_game *game);
+void	init_collects(t_game *game);
+void	init_char(t_game *game);
+void	init_escapes(t_game *game);
 
 //files prototypes
 void	ft_files_inspector(t_game *game, char **argv);
@@ -80,4 +100,14 @@ void	map_save_objects(t_map *map, t_game *game);
 
 //window
 void	open_window(t_game *game);
+void	ft_texturing(t_game *game);
+void	ft_import_images(t_game *game);
+void	ft_put_image(t_game *game);
+void	put_collects(t_game *game, int y, int x);
+void	put_escape(t_game *game, int y, int x);
+void	put_charac(t_game *game, int y, int x);
+void	put_tiles(t_game *game, int y, int x);
+void	put_wall(t_game *game, int y, int x);
+void	ft_put(void *mlx_ptr, void *win_ptr, char *path, int w, int h);
+
 #endif

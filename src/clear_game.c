@@ -14,15 +14,17 @@
 
 static void	clear_mlx(t_mlx *mlx)
 {
+	mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
+	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
+	mlx_destroy_display(mlx->mlx_ptr);
 	free(mlx->mlx_ptr);
-	free(mlx->win_ptr);
 	free(mlx);
 }
 
 static	void	clear_map(t_map *map)
 {
 	int	i;
-	
+
 	i = -1;
 	free(map->name);
 	if (map->matrix)
