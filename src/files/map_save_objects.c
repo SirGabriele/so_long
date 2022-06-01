@@ -26,26 +26,26 @@ static void	check_objects(char c, int x, int y, t_map *map)
 	}
 	else if (c == 'E')
 	{
-		map->escapes[count_escapes].x = x + 1;
-		map->escapes[count_escapes].y = y + 1;
+		map->esc[count_escapes].x = x + 1;
+		map->esc[count_escapes].y = y + 1;
 		count_escapes++;
 	}
 	else if (c == 'C')
 	{
-		map->collects[count_collects].x = x + 1;
-		map->collects[count_collects].y = y + 1;
+		map->col[count_collects].x = x + 1;
+		map->col[count_collects].y = y + 1;
 		count_collects++;
 	}
 }
 
-void	map_save_objects(t_map *map, t_game *game)
+void	map_save_objects(t_map *map)
 {
 	int	y;
 	int	x;
 
 	map->starts = malloc((map->nb_starts) * sizeof(t_start));
-	map->escapes = malloc((map->nb_escapes) * sizeof(t_escape));
-	map->collects = malloc((map->nb_collects) * sizeof(t_collect));
+	map->esc = malloc((map->nb_esc) * sizeof(t_escape));
+	map->col = malloc((map->nb_col) * sizeof(t_collect));
 	y = -1;
 	while (map->matrix[++y])
 	{
@@ -53,5 +53,4 @@ void	map_save_objects(t_map *map, t_game *game)
 		while (map->matrix[y][++x])
 			check_objects(map->matrix[y][x], x, y, map);
 	}
-	(void)game;
 }

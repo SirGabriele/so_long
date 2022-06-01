@@ -20,6 +20,7 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
+# include <time.h>
 
 typedef struct s_mlx
 {
@@ -53,6 +54,12 @@ typedef struct s_collect
 	int	y;
 }	t_collect;
 
+typedef struct s_player
+{
+	int	x;
+	int	y;
+}	t_player;
+
 typedef struct s_map
 {
 	char			*name;
@@ -61,53 +68,60 @@ typedef struct s_map
 	char			**matrix;
 	t_start			*starts;
 	int				nb_starts;
-	t_escape		*escapes;
-	int				nb_escapes;
-	t_collect		*collects;
-	int				nb_collects;
+	t_escape		*esc;
+	int				nb_esc;
+	t_collect		*col;
+	int				nb_col;
 }	t_map;
 
 typedef struct s_game
 {
-	t_map	*map;
-	t_mlx	*mlx;
-	t_img	*walls;
-	t_img	*tiles;
-	t_img	*escapes;
-	t_img	*collects;
-	t_img	*left;
-	t_img	*right;
-	t_img	*up;
-	t_img	*down;
+	t_map		*map;
+	t_mlx		*mlx;
+	t_img		*walls;
+	t_img		*tiles;
+	t_img		*esc;
+	t_img		*col;
+	t_img		*left;
+	t_img		*right;
+	t_img		*up;
+	t_img		*down;
+	t_player	*player;
 }	t_game;
 
-void	ft_error(int error, t_game *game);
-void	clear_game(t_game *game);
+void	ft_error(int error, t_game *g);
+void	clear_game(t_game *g);
+void	change_matrix(t_game *g);
 
 //Init prototypes
-void	game_init(t_game *game);
+void	game_init(t_game *g);
 void	map_init(t_map *map);
-void	init_walls(t_game *game);
-void	init_tiles(t_game *game);
-void	init_collects(t_game *game);
-void	init_char(t_game *game);
-void	init_escapes(t_game *game);
+void	init_walls(t_game *g);
+void	init_tiles(t_game *g);
+void	init_collects(t_game *g);
+void	init_char(t_game *g);
+void	init_escapes(t_game *g);
 
 //files prototypes
-void	ft_files_inspector(t_game *game, char **argv);
-void	ft_map_parsing(t_game *game);
-void	map_save_objects(t_map *map, t_game *game);
+void	ft_files_inspector(t_game *g, char **argv);
+void	ft_map_parsing(t_game *g);
+void	map_save_objects(t_map *map);
 
 //window
-void	open_window(t_game *game);
-void	ft_texturing(t_game *game);
-void	ft_import_images(t_game *game);
-void	ft_put_image(t_game *game);
-void	put_collects(t_game *game, int y, int x);
-void	put_escape(t_game *game, int y, int x);
-void	put_charac(t_game *game, int y, int x);
-void	put_tiles(t_game *game, int y, int x);
-void	put_wall(t_game *game, int y, int x);
-void	ft_put(void *mlx_ptr, void *win_ptr, char *path, int w, int h);
+void	open_window(t_game *g);
+void	ft_texturing(t_game *g);
+void	ft_import_images(t_game *g);
+void	ft_put_image(t_game *g);
+void	put_collects(t_game *g, int y, int x);
+void	put_escape(t_game *g, int y, int x);
+void	put_charac(t_game *g, int y, int x);
+void	put_tiles(t_game *g, int y, int x);
+void	put_wall(t_game *g, int y, int x);
+void	ft_put(t_mlx *mlx2, char *path, int w, int h);
+void	move_right(t_game *g, int x, int y);
+void	move_left(t_game *g, int x, int y);
+void	move_up(t_game *g, int x, int y);
+void	move_down(t_game *g, int x, int y);
+void	movement_processing(t_game *g, int res, int dest_y, int dest_x);
 
 #endif

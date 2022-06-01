@@ -15,4 +15,14 @@
 void	game_init(t_game *game)
 {
 	game->map = NULL;
+	game->mlx = NULL;
+	game->walls = NULL;
+	game->tiles = NULL;
+	game->esc = NULL;
+	game->col = NULL;
+	game->left = NULL;
+	game->right = NULL;
+	game->up = NULL;
+	game->down = NULL;
+	game->player = NULL;
 }

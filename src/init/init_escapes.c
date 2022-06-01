@@ -19,8 +19,8 @@ void	init_escapes(t_game *game)
 	t_mlx	*m;
 
 	m = game->mlx;
-	game->escapes = malloc(sizeof(t_img) * 1);
-	e = game->escapes;
+	game->esc = malloc(sizeof(t_img) * 1);
+	e = game->esc;
 	e[0].p = "images/escape.xpm";
 	i = -1;
 	while (++i < 1)

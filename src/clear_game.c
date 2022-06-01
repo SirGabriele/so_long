@@ -34,8 +34,8 @@ static	void	clear_map(t_map *map)
 		free(map->matrix);
 	}
 	free(map->starts);
-	free(map->escapes);
-	free(map->collects);
+	free(map->esc);
+	free(map->col);
 	free(map);
 }
 

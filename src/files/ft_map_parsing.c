@@ -12,63 +12,65 @@
 
 #include "../so_long.h"
 
-static void	check_symbol(char c, t_game *game)
+static void	check_symbol(char c, t_game *g)
 {
 	if (!(c == '1' || c == '0' || c == 'E' || c == 'P' || c == 'C'))
-		ft_error(23, game);
+		ft_error(23, g);
 	else if (c == 'P')
-		game->map->nb_starts++;
+		g->map->nb_starts++;
 	else if (c == 'E')
-		game->map->nb_escapes++;
+		g->map->nb_esc++;
 	else if (c == 'C')
-		game->map->nb_collects++;
+		g->map->nb_col++;
+	else
+		ft_error(24, g);
 }
 
-static void	check_first_last_lines(char *line, t_game *game)
+static void	check_first_last_lines(char *line, t_game *g)
 {
 	int	x;
 
 	x = -1;
 	while (line[++x] != '\0')
 	{
-		if (line[x] != '1' && x < game->map->x)
-			ft_error(22, game);
+		if (line[x] != '1' && x < g->map->x)
+			ft_error(22, g);
 	}
-	if (x != game->map->x)
-		ft_error(23, game);
+	if (x != g->map->x)
+		ft_error(23, g);
 }
 
-static void	check_middle_lines(char *line, t_game *game)
+static void	check_middle_lines(char *line, t_game *g)
 {
 	int	x;
 
 	x = -1;
 	while (line[++x] != '\0')
-		check_symbol(line[x], game);
-	if (x != game->map->x)
-		ft_error(23, game);
+		check_symbol(line[x], g);
+	if (x != g->map->x)
+		ft_error(23, g);
 	if (line[0] != '1' || line[x - 1] != '1')
-		ft_error(22, game);
+		ft_error(22, g);
 }
 
-static void	check_map_symbols(char *line, int y, t_game *game)
+static void	check_map_symbols(char *line, int y, t_game *g)
 {
-	if (y == 0 || y == game->map->y)
-		check_first_last_lines(line, game);
+	if (y == 0 || y == g->map->y)
+		check_first_last_lines(line, g);
 	else
-		check_middle_lines(line, game);
+		check_middle_lines(line, g);
 }
 
-void	ft_map_parsing(t_game *game)
+void	ft_map_parsing(t_game *g)
 {
 	int	y;
 
 	y = -1;
-	while (game->map->matrix[++y])
-		check_map_symbols(game->map->matrix[y], y, game);
-	if (game->map->nb_starts == 0
-		|| game->map->nb_escapes == 0
-		|| game->map->nb_collects == 0)
-		ft_error(25, game);
-	map_save_objects(game->map, game);
+	while (g->map->matrix[++y])
+		check_map_symbols(g->map->matrix[y], y, g);
+	if (g->map->nb_starts == 0
+		|| g->map->nb_esc == 0
+		|| g->map->nb_col == 0)
+		ft_error(25, g);
+	map_save_objects(g->map);
 }

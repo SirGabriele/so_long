@@ -20,8 +20,8 @@ void	map_init(t_map *map)
 	map->matrix = NULL;
 	map->starts = NULL;
 	map->nb_starts = 0;
-	map->escapes = NULL;
-	map->nb_escapes = 0;
-	map->collects = NULL;
-	map->nb_collects = 0;
+	map->esc = NULL;
+	map->nb_esc = 0;
+	map->col = NULL;
+	map->nb_col = 0;
 }

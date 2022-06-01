@@ -12,41 +12,41 @@
 
 #include "../so_long.h"
 
-static void	ft_count_map_y(t_game *game)
+static void	ft_count_map_y(t_game *g)
 {
 	char	buf[1];
 	int		fd;
 	int		hmb_read;
 
-	fd = open(game->map->name, O_RDONLY);
+	fd = open(g->map->name, O_RDONLY);
 	if (fd == -1)
-		ft_error(11, game);
+		ft_error(11, g);
 	hmb_read = 1;
 	while (hmb_read != 0)
 	{
 		hmb_read = read(fd, buf, 1);
-		if (hmb_read == 0 && game->map->y == 0)
-			ft_error(13, game);
+		if (hmb_read == 0 && g->map->y == 0)
+			ft_error(13, g);
 		if (buf[0] == '\n')
 		{
 			buf[0] = '\0';
-			game->map->y++;
+			g->map->y++;
 		}
 	}
 	if (close(fd) == -1)
-		ft_error(12, game);
+		ft_error(12, g);
 }
 
-static void	ft_count_map_x(t_game *game)
+static void	ft_count_map_x(t_game *g)
 {
 	char	*line;
 	int		fd;
 	int		i;
 	int		count;
 
-	fd = open(game->map->name, O_RDONLY);
+	fd = open(g->map->name, O_RDONLY);
 	if (fd == -1)
-		ft_error(11, game);
+		ft_error(11, g);
 	count = 0;
 	while (1)
 	{
@@ -54,39 +54,39 @@ static void	ft_count_map_x(t_game *game)
 		if (line == NULL)
 			break ;
 		i = -1;
-		game->map->matrix[count] = ft_calloc(ft_strlen(line), sizeof(char));
+		g->map->matrix[count] = ft_calloc(ft_strlen(line), sizeof(char));
 		while (line[++i] != '\n')
-			game->map->matrix[count][i] = line[i];
-		game->map->x = i;
+			g->map->matrix[count][i] = line[i];
+		g->map->x = i;
 		free(line);
 		line = NULL;
 		count++;
 	}
 	if (close(fd) == -1)
-		ft_error(12, game);
+		ft_error(12, g);
 }
 
-static void	ft_define_map(char	*argv, t_game *game)
+static void	ft_define_map(char *argv, t_game *g)
 {
-	game->map->name = ft_strjoin("maps/", argv);
-	ft_count_map_y(game);
-	if (game->map->y < 3)
-		ft_error(20, game);
-	game->map->matrix = ft_calloc(game->map->y + 1, sizeof(char *));
-	ft_count_map_x(game);
-	if (game->map->x < 3)
-		ft_error(21, game);
-	ft_map_parsing(game);
+	g->map->name = ft_strjoin("maps/", argv);
+	ft_count_map_y(g);
+	if (g->map->y < 3)
+		ft_error(20, g);
+	g->map->matrix = ft_calloc(g->map->y + 1, sizeof(char *));
+	ft_count_map_x(g);
+	if (g->map->x < 3)
+		ft_error(21, g);
+	ft_map_parsing(g);
 }
 
-void	ft_files_inspector(t_game *game, char **argv)
+void	ft_files_inspector(t_game *g, char **argv)
 {
 	int	i;
 
 	i = 0;
 	while (argv[i] != NULL)
-		ft_error(ft_extension(argv[i++], ".ber"), game);
-	game->map = malloc(sizeof(t_map));
-	map_init(game->map);
-	ft_define_map(argv[0], game);
+		ft_error(ft_extension(argv[i++], ".ber"), g);
+	g->map = malloc(sizeof(t_map));
+	map_init(g->map);
+	ft_define_map(argv[0], g);
 }

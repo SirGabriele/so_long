@@ -19,8 +19,8 @@ void	init_collects(t_game *game)
 	t_mlx	*m;
 
 	m = game->mlx;
-	game->collects = malloc(sizeof(t_img) * 1);
-	c = game->collects;
+	game->col = malloc(sizeof(t_img) * 1);
+	c = game->col;
 	c[0].p = "images/collects.xpm";
 	i = -1;
 	while (++i < 1)

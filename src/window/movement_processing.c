@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_import_images.c                                 :+:      :+:    :+:   */
+/*   movement_processing.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 13:13:54 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/05/30 15:00:18 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/05/31 16:51:47 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/05/31 17:58:31 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	ft_import_images(t_game *g)
+void	movement_processing(t_game *g, int res, int dest_x, int dest_y)
 {
-	init_walls(g);
-	init_tiles(g);
-	init_collects(g);
-	init_escapes(g);
-	init_char(g);
+	if (res == 'C')
+	{
+		g->map->nb_col--;
+		g->map->matrix[dest_y][dest_x] = 0;
+	}
+	else if (res == 'E')
+	{
+		if (g->map->nb_col == 0)
+			clear_game(g);
+	}
 }

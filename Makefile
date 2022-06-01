@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/05/30 20:24:04 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/05/31 20:22:56 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ LIBFT = libft/libft.a
 
 SRC = main.c             \
 	  ft_error.c         \
-	  clear_game.c
+	  clear_game.c		 \
+	  change_matrix.c
 
 FILES = ft_files_inspector.c     \
 	    ft_map_parsing.c         \
@@ -34,7 +35,9 @@ WINDOW = open_window.c			\
 		 ft_import_images.c		\
 		 ft_put_image.c			\
 		 image_printer.c		\
-		 ft_put.c
+		 ft_put.c				\
+		 ft_move_player.c		\
+		 movement_processing.c			
 
 SRCS = $(addprefix src/, $(SRC))		     \
 	   $(addprefix src/files/, $(FILES))   \
