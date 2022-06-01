@@ -1,19 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_player.c                                      :+:      :+:    :+:   */
+/*   display_steps.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/31 12:52:05 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/05/31 13:34:32 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/06/01 16:30:55 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/06/01 16:36:45 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	init_player(t_game *game)
+static void	print_steps(t_game *g, int steps, int x, int y)
 {
-	game->map->player->x = 0;
-	game->map->player->y = 0;
+	int	res;
+	
+	res = 0;
+	while (steps > 0)
+	{
+		res = steps % 10;
+		ft_put(g->mlx, g->numbers[res].img, x + 25, y);
+		x -= 16;
+		steps /= 10;
+	}
+}
+
+void	display_steps(t_game *g, int steps)
+{
+	int	x;
+	
+	x = g->map->x;
+	print_steps(g, steps, (x + 1) * 64, 25);
 }

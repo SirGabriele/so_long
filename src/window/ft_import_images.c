@@ -19,4 +19,5 @@ void	ft_import_images(t_game *g)
 	init_collects(g);
 	init_escapes(g);
 	init_char(g);
+	init_numbers(g);
 }

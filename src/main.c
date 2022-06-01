@@ -21,26 +21,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		ft_error(1, g);
 	ft_files_inspector(g, ++argv);
-	
-	int y = -1;
-	int x;
-	while (++y < g->map->y)
-	{
-		x = -1;
-		while (++x < g->map->x)
-			ft_printf("%c ", g->map->matrix[y][x]);
-		ft_printf("\n");
-	}
-	ft_printf("\n\n\n");
 	change_matrix(g);
-	y = -1;
-	while (++y < g->map->y)
-	{
-		x = -1;
-		while (++x < g->map->x)
-			ft_printf("%c ", g->map->matrix[y][x]);
-		ft_printf("\n");
-	}
 	open_window(g);	
 	clear_game(g);
 	return (0);

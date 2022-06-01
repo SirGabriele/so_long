@@ -15,15 +15,13 @@
 static void	check_symbol(char c, t_game *g)
 {
 	if (!(c == '1' || c == '0' || c == 'E' || c == 'P' || c == 'C'))
-		ft_error(23, g);
+		ft_error(24, g);
 	else if (c == 'P')
 		g->map->nb_starts++;
 	else if (c == 'E')
 		g->map->nb_esc++;
 	else if (c == 'C')
 		g->map->nb_col++;
-	else
-		ft_error(24, g);
 }
 
 static void	check_first_last_lines(char *line, t_game *g)

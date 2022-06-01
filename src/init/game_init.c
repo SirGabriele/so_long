@@ -24,5 +24,6 @@ void	game_init(t_game *game)
 	game->right = NULL;
 	game->up = NULL;
 	game->down = NULL;
+	game->numbers = NULL;
 	game->player = NULL;
 }

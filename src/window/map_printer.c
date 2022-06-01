@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image_printer.c                                    :+:      :+:    :+:   */
+/*   map_printer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -54,6 +54,7 @@ void	put_charac(t_game *g, int y, int x)
 	g->player = malloc(sizeof(t_player));
 	g->player->x = x;
 	g->player->y = y;
+	g->player->steps = 0;
 	mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, r[0].img, x2, y2);
 }
 

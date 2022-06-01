@@ -12,13 +12,21 @@
 
 #include "so_long.h"
 
-static void	clear_mlx(t_mlx *mlx)
+static void	clear_player(t_game *g)
 {
-	mlx_clear_window(mlx->mlx_ptr, mlx->win_ptr);
-	mlx_destroy_window(mlx->mlx_ptr, mlx->win_ptr);
-	mlx_destroy_display(mlx->mlx_ptr);
-	free(mlx->mlx_ptr);
-	free(mlx);
+	free(g->player);
+}
+
+static void	clear_mlx(t_game *g)
+{
+	mlx_clear_window(g->mlx->mlx_ptr, g->mlx->win_ptr);
+	clear_images(g);
+	clear_numbers(g);
+	clear_player(g);
+	mlx_destroy_window(g->mlx->mlx_ptr, g->mlx->win_ptr);
+	mlx_destroy_display(g->mlx->mlx_ptr);
+	free(g->mlx->mlx_ptr);
+	free(g->mlx);
 }
 
 static	void	clear_map(t_map *map)
@@ -27,7 +35,7 @@ static	void	clear_map(t_map *map)
 
 	i = -1;
 	free(map->name);
-	if (map->matrix)
+	if (map->matrix != NULL)
 	{
 		while (map->matrix[++i] != NULL)
 			free(map->matrix[i]);
@@ -39,12 +47,12 @@ static	void	clear_map(t_map *map)
 	free(map);
 }
 
-void	clear_game(t_game *game)
+void	clear_game(t_game *g)
 {
-	if (game->map != NULL)
-		clear_map(game->map);
-	if (game->mlx != NULL)
-		clear_mlx(game->mlx);
-	free(game);
+	if (g->map != NULL)
+		clear_map(g->map);
+	if (g->mlx != NULL)
+		clear_mlx(g);
+	free(g);
 	exit(0);
 }

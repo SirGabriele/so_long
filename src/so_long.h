@@ -58,6 +58,7 @@ typedef struct s_player
 {
 	int	x;
 	int	y;
+	int	steps;
 }	t_player;
 
 typedef struct s_map
@@ -86,11 +87,14 @@ typedef struct s_game
 	t_img		*right;
 	t_img		*up;
 	t_img		*down;
+	t_img		*numbers;
 	t_player	*player;
 }	t_game;
 
 void	ft_error(int error, t_game *g);
 void	clear_game(t_game *g);
+void	clear_images(t_game *g);
+void	clear_numbers(t_game *g);
 void	change_matrix(t_game *g);
 
 //Init prototypes
@@ -101,6 +105,8 @@ void	init_tiles(t_game *g);
 void	init_collects(t_game *g);
 void	init_char(t_game *g);
 void	init_escapes(t_game *g);
+void	init_numbers(t_game *g);
+void	init_player(t_game *g);
 
 //files prototypes
 void	ft_files_inspector(t_game *g, char **argv);
@@ -123,5 +129,6 @@ void	move_left(t_game *g, int x, int y);
 void	move_up(t_game *g, int x, int y);
 void	move_down(t_game *g, int x, int y);
 void	movement_processing(t_game *g, int res, int dest_y, int dest_x);
+void	display_steps(t_game *g, int steps);
 
 #endif
