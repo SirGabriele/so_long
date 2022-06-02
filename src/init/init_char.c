@@ -21,7 +21,7 @@ static void	init_up(t_game *game)
 	m = game->mlx;
 	game->up = malloc(sizeof(t_img) * 1);
 	u = game->up;
-	u[0].p = "images/pacman_up.xpm";
+	u[0].p = "images/G_Up.xpm";
 	i = -1;
 	while (++i < 1)
 	{
@@ -40,7 +40,7 @@ static void	init_down(t_game *game)
 	m = game->mlx;
 	game->down = malloc(sizeof(t_img) * 1);
 	d = game->down;
-	d[0].p = "images/pacman_down.xpm";
+	d[0].p = "images/G_Down.xpm";
 	i = -1;
 	while (++i < 1)
 	{
@@ -59,7 +59,7 @@ static void	init_left(t_game *game)
 	m = game->mlx;
 	game->left = malloc(sizeof(t_img) * 1);
 	l = game->left;
-	l[0].p = "images/pacman_left.xpm";
+	l[0].p = "images/G_Left.xpm";
 	i = -1;
 	while (++i < 1)
 	{
@@ -78,7 +78,7 @@ static void	init_right(t_game *game)
 	m = game->mlx;
 	game->right = malloc(sizeof(t_img) * 1);
 	r = game->right;
-	r[0].p = "images/pacman_right.xpm";
+	r[0].p = "images/G_Right.xpm";
 	i = -1;
 	while (++i < 1)
 	{

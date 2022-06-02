@@ -21,7 +21,7 @@ void	init_collects(t_game *game)
 	m = game->mlx;
 	game->col = malloc(sizeof(t_img) * 1);
 	c = game->col;
-	c[0].p = "images/collects.xpm";
+	c[0].p = "images/stone.xpm";
 	i = -1;
 	while (++i < 1)
 	{

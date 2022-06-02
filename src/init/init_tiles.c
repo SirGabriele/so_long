@@ -21,7 +21,7 @@ void	init_tiles(t_game *game)
 	m = game->mlx;
 	game->tiles = malloc(sizeof(t_img) * 1);
 	t = game->tiles;
-	t[0].p = "images/tiles.xpm";
+	t[0].p = "images/grass.xpm";
 	i = -1;
 	while (++i < 1)
 	{
