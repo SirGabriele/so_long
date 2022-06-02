@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 16:30:55 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/06/01 16:36:45 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/06/02 18:35:31 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	print_steps(t_game *g, int steps, int x, int y)
 {
 	int	res;
-	
+
 	res = 0;
 	while (steps > 0)
 	{
@@ -29,7 +29,7 @@ static void	print_steps(t_game *g, int steps, int x, int y)
 void	display_steps(t_game *g, int steps)
 {
 	int	x;
-	
+
 	x = g->map->x;
 	print_steps(g, steps, (x + 1) * 64, 25);
 }

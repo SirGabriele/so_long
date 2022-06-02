@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 20:38:15 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/05/30 20:47:57 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/06/02 18:35:01 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	move_up(t_game *g, int x, int y)
 	t = g->tiles;
 	m = g->mlx;
 	u = g->up;
-	res = can_player_move(g, x - 1, y - 2);\
+	res = can_player_move(g, x - 1, y - 2);
 	if (res != 1)
 	{
 		display_steps(g, ++(g->player->steps));
