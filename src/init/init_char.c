@@ -12,86 +12,24 @@
 
 #include "../so_long.h"
 
-static void	init_up(t_game *game)
-{
-	t_img	*u;
-	int		i;
-	t_mlx	*m;
-
-	m = game->mlx;
-	game->up = malloc(sizeof(t_img) * 1);
-	u = game->up;
-	u[0].p = "images/G_Up.xpm";
-	i = -1;
-	while (++i < 1)
-	{
-		u[i].w = 64;
-		u[i].h = 64;
-		u[i].img = mlx_xpm_file_to_image(m->mlx_ptr, u[i].p, &u[i].w, &u[i].h);
-	}
-}
-
-static void	init_down(t_game *game)
-{
-	t_img	*d;
-	int		i;
-	t_mlx	*m;
-
-	m = game->mlx;
-	game->down = malloc(sizeof(t_img) * 1);
-	d = game->down;
-	d[0].p = "images/G_Down.xpm";
-	i = -1;
-	while (++i < 1)
-	{
-		d[i].w = 64;
-		d[i].h = 64;
-		d[i].img = mlx_xpm_file_to_image(m->mlx_ptr, d[i].p, &d[i].w, &d[i].h);
-	}
-}
-
-static void	init_left(t_game *game)
-{
-	t_img	*l;
-	int		i;
-	t_mlx	*m;
-
-	m = game->mlx;
-	game->left = malloc(sizeof(t_img) * 1);
-	l = game->left;
-	l[0].p = "images/G_Left.xpm";
-	i = -1;
-	while (++i < 1)
-	{
-		l[i].w = 64;
-		l[i].h = 64;
-		l[i].img = mlx_xpm_file_to_image(m->mlx_ptr, l[i].p, &l[i].w, &l[i].h);
-	}
-}
-
-static void	init_right(t_game *game)
-{
-	t_img	*r;
-	int		i;
-	t_mlx	*m;
-
-	m = game->mlx;
-	game->right = malloc(sizeof(t_img) * 1);
-	r = game->right;
-	r[0].p = "images/G_Right.xpm";
-	i = -1;
-	while (++i < 1)
-	{
-		r[i].w = 64;
-		r[i].h = 64;
-		r[i].img = mlx_xpm_file_to_image(m->mlx_ptr, r[i].p, &r[i].w, &r[i].h);
-	}
-}
-
 void	init_char(t_game *game)
 {
-	init_up(game);
-	init_down(game);
-	init_left(game);
-	init_right(game);
+	t_img	*p;
+	int		i;
+	t_mlx	*m;
+
+	m = game->mlx;
+	game->player_img = malloc(sizeof(t_img) * 4);
+	p = game->player_img;
+	p[0].p = "images/G_Left.xpm";
+	p[1].p = "images/G_Up.xpm";
+	p[2].p = "images/G_Right.xpm";
+	p[3].p = "images/G_Down.xpm";
+	i = -1;
+	while (++i < 4)
+	{
+		p[i].w = 64;
+		p[i].h = 64;
+		p[i].img = mlx_xpm_file_to_image(m->mlx_ptr, p[i].p, &p[i].w, &p[i].h);
+	}
 }

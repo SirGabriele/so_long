@@ -32,7 +32,7 @@ void	move_right(t_game *g, int x, int y)
 
 	t = g->tiles;
 	m = g->mlx;
-	r = g->right;
+	r = g->player_img;
 	res = can_player_move(g, x, y - 1);
 	if (res != 1)
 	{
@@ -42,9 +42,11 @@ void	move_right(t_game *g, int x, int y)
 			ft_put(m, g->esc[0].img, (x++) * 64, y * 64);
 		else
 			ft_put(m, t[0].img, (x++) * 64, y * 64);
-		ft_put(m, r[0].img, x * 64, y * 64);
+		ft_put(m, r[2].img, x * 64, y * 64);
 		g->player->x = x;
 	}
+	else
+		ft_put(m, r[2].img, x * 64, y * 64);
 }
 
 void	move_left(t_game *g, int x, int y)
@@ -56,7 +58,7 @@ void	move_left(t_game *g, int x, int y)
 
 	t = g->tiles;
 	m = g->mlx;
-	l = g->left;
+	l = g->player_img;
 	res = can_player_move(g, x - 2, y - 1);
 	if (res != 1)
 	{
@@ -69,6 +71,8 @@ void	move_left(t_game *g, int x, int y)
 		ft_put(m, l[0].img, x * 64, y * 64);
 		g->player->x = x;
 	}
+	else
+		ft_put(m, l[0].img, x * 64, y * 64);
 }
 
 void	move_up(t_game *g, int x, int y)
@@ -80,7 +84,7 @@ void	move_up(t_game *g, int x, int y)
 
 	t = g->tiles;
 	m = g->mlx;
-	u = g->up;
+	u = g->player_img;
 	res = can_player_move(g, x - 1, y - 2);
 	if (res != 1)
 	{
@@ -90,21 +94,23 @@ void	move_up(t_game *g, int x, int y)
 			ft_put(m, g->esc[0].img, x * 64, (y--) * 64);
 		else
 			ft_put(m, t[0].img, x * 64, (y--) * 64);
-		ft_put(m, u[0].img, x * 64, y * 64);
+		ft_put(m, u[1].img, x * 64, y * 64);
 		g->player->y = y;
 	}
+	else
+		ft_put(m, u[1].img, x * 64, y * 64);
 }
 
 void	move_down(t_game *g, int x, int y)
 {
-	t_img	*s;
+	t_img	*d;
 	t_mlx	*m;
 	t_img	*t;
 	int		res;
 
 	t = g->tiles;
 	m = g->mlx;
-	s = g->down;
+	d = g->player_img;
 	res = can_player_move(g, x - 1, y);
 	if (res != 1)
 	{
@@ -114,7 +120,9 @@ void	move_down(t_game *g, int x, int y)
 			ft_put(m, g->esc[0].img, x * 64, (y++) * 64);
 		else
 			ft_put(m, t[0].img, x * 64, (y++) * 64);
-		ft_put(m, s[0].img, x * 64, y * 64);
+		ft_put(m, d[3].img, x * 64, y * 64);
 		g->player->y = y;
 	}
+	else
+		ft_put(m, d[3].img, x * 64, y * 64);
 }

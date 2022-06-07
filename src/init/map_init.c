@@ -18,10 +18,7 @@ void	map_init(t_map *map)
 	map->x = 0;
 	map->y = 0;
 	map->matrix = NULL;
-	map->starts = NULL;
 	map->nb_starts = 0;
-	map->esc = NULL;
 	map->nb_esc = 0;
-	map->col = NULL;
 	map->nb_col = 0;
 }

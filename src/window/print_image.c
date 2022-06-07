@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put_image.c                                     :+:      :+:    :+:   */
+/*   print_image.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -26,7 +26,7 @@ static void	if_forest(t_game *g, int y, int x)
 		put_collects(g, y + 1, x + 1);
 }
 
-void	ft_put_image(t_game *g)
+void	print_image(t_game *g)
 {
 	int	y;
 	int	x;

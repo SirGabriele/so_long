@@ -17,21 +17,10 @@ static void	destroy_player(t_game *g)
 	int	i;
 
 	i = -1;
-	while (++i < 1)
-		mlx_destroy_image(g->mlx->mlx_ptr, g->left[i].img);
-	free(g->left);
-	i = -1;
-	while (++i < 1)
-		mlx_destroy_image(g->mlx->mlx_ptr, g->right[i].img);
-	free(g->right);
-	i = -1;
-	while (++i < 1)
-		mlx_destroy_image(g->mlx->mlx_ptr, g->up[i].img);
-	free(g->up);
-	i = -1;
-	while (++i < 1)
-		mlx_destroy_image(g->mlx->mlx_ptr, g->down[i].img);
-	free(g->down);
+	while (++i < 4)
+		mlx_destroy_image(g->mlx->mlx_ptr, g->player_img[i].img);
+	free(g->player_img);
+
 }
 
 void	clear_numbers(t_game *g)

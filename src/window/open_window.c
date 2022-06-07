@@ -46,11 +46,11 @@ void	open_window(t_game *game)
 	mlx2->mlx_ptr = mlx_init();
 	if (mlx2->mlx_ptr == NULL)
 		ft_error(12, game);
-	mlx2->win_ptr = mlx_new_window(mlx2->mlx_ptr, width, height, "so_long");
+	mlx2->win_ptr = mlx_new_window(mlx2->mlx_ptr, width, height, "TIG Simulator");
 	if (mlx2->win_ptr == NULL)
 		ft_error(13, game);
 	ft_import_images(game);
-	ft_put_image(game);
+	print_image(game);
 	mlx_key_hook(mlx2->win_ptr, deal_key, game);
 	mlx_hook(mlx2->win_ptr, DestroyNotify, 0, destroy_notif, game);
 	mlx_loop(mlx2->mlx_ptr);

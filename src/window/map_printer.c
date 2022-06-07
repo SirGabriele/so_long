@@ -43,19 +43,19 @@ void	put_escape(t_game *g, int y, int x)
 void	put_charac(t_game *g, int y, int x)
 {
 	t_mlx	*m;
-	t_img	*r;
+	t_img	*p;
 	int		x2;
 	int		y2;
 
 	m = g->mlx;
-	r = g->right;
+	p = g->player_img;
 	x2 = x * 64;
 	y2 = y * 64;
-	g->player = malloc(sizeof(t_player));
+	g->player = malloc(sizeof(t_entity));
 	g->player->x = x;
 	g->player->y = y;
 	g->player->steps = 0;
-	mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, r[0].img, x2, y2);
+	mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, p[1].img, x2, y2);
 }
 
 void	put_tiles(t_game *g, int y, int x)
@@ -83,5 +83,5 @@ void	put_wall(t_game *g, int y, int x)
 	w = g->walls;
 	x2 = x * 64;
 	y2 = y * 64;
-	ft_put(m, w[0].img, x2, y2);
+	mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, w[0].img, x2, y2);
 }	

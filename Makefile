@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/06/01 17:45:02 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/06/07 13:32:02 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,11 +18,11 @@ SRC = main.c             \
 	  ft_error.c         \
 	  clear_game.c		 \
 	  clear_images.c	 \
-	  change_matrix.c
+	  change_matrix.c	 \
+	  ft_put.c
 
 FILES = ft_files_inspector.c     \
-	    ft_map_parsing.c         \
-		map_save_objects.c    	   
+	    ft_map_parsing.c
 
 INIT = game_init.c				\
 	   map_init.c				\
@@ -35,17 +35,18 @@ INIT = game_init.c				\
 
 WINDOW = open_window.c			\
 		 ft_import_images.c		\
-		 ft_put_image.c			\
-		 map_printer.c			\
-		 ft_put.c				\
-		 ft_move_player.c		\
-		 movement_processing.c	\
-		 display_steps.c		
+		 print_image.c			\
+		 map_printer.c
+
+MOVEMENT = ft_move_player.c			\
+		   movement_processing.c	\
+		   display_steps.c		
 
 SRCS = $(addprefix src/, $(SRC))		     \
 	   $(addprefix src/files/, $(FILES))   \
 	   $(addprefix src/init/, $(INIT))     \
-	   $(addprefix src/window/, $(WINDOW)) 
+	   $(addprefix src/window/, $(WINDOW)) \
+	   $(addprefix src/movement/, $(MOVEMENT))
 
 CC =	gcc
 

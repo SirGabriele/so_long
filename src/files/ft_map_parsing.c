@@ -70,5 +70,4 @@ void	ft_map_parsing(t_game *g)
 		|| g->map->nb_esc == 0
 		|| g->map->nb_col == 0)
 		ft_error(25, g);
-	map_save_objects(g->map);
 }
