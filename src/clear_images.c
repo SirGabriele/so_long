@@ -12,24 +12,21 @@
 
 #include "so_long.h"
 
-static void	destroy_player(t_game *g)
+static void	clear_player_patrol_numbers(t_game *g)
 {
 	int	i;
 
 	i = -1;
 	while (++i < 4)
 		mlx_destroy_image(g->mlx->mlx_ptr, g->player_img[i].img);
-	free(g->player_img);
-
-}
-
-void	clear_numbers(t_game *g)
-{
-	int	i;
-
+	i = -1;
+	while (++i < 4)
+		mlx_destroy_image(g->mlx->mlx_ptr, g->patrol[i].img);
 	i = -1;
 	while (++i < 10)
 		mlx_destroy_image(g->mlx->mlx_ptr, g->numbers[i].img);
+	free(g->player_img);
+	free(g->patrol);
 	free(g->numbers);
 }
 
@@ -37,22 +34,15 @@ void	clear_images(t_game *g)
 {
 	int	i;
 
-	i = -1;
-	while (++i < 1)
-		mlx_destroy_image(g->mlx->mlx_ptr, g->walls[i].img);
-	free(g->walls);
-	i = -1;
-	while (++i < 1)
-		mlx_destroy_image(g->mlx->mlx_ptr, g->tiles[i].img);
-	free(g->tiles);
+	mlx_destroy_image(g->mlx->mlx_ptr, g->walls[0].img);
+	mlx_destroy_image(g->mlx->mlx_ptr, g->tiles[0].img);
+	mlx_destroy_image(g->mlx->mlx_ptr, g->col[0].img);
 	i = -1;
 	while (++i < 1)
 		mlx_destroy_image(g->mlx->mlx_ptr, g->esc[i].img);
-	free(g->esc);
-	i = -1;
-	while (++i < 1)
-		mlx_destroy_image(g->mlx->mlx_ptr, g->col[i].img);
+	free(g->walls);
+	free(g->tiles);
 	free(g->col);
-	i = -1;
-	destroy_player(g);
+	free(g->esc);
+	clear_player_patrol_numbers(g);
 }

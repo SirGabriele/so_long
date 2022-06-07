@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/06/07 13:32:02 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/06/07 15:10:47 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC = main.c             \
 	  clear_game.c		 \
 	  clear_images.c	 \
 	  change_matrix.c	 \
-	  ft_put.c
+	  ft_put.c			 
 
 FILES = ft_files_inspector.c     \
 	    ft_map_parsing.c
@@ -31,7 +31,8 @@ INIT = game_init.c				\
 	   init_collects.c			\
 	   init_char.c				\
 	   init_escapes.c			\
-	   init_numbers.c			
+	   init_numbers.c			\
+	   init_patrol.c
 
 WINDOW = open_window.c			\
 		 ft_import_images.c		\

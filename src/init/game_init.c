@@ -23,4 +23,5 @@ void	game_init(t_game *game)
 	game->player_img = NULL;
 	game->numbers = NULL;
 	game->player = NULL;
+	game->patrol = NULL;
 }

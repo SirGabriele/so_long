@@ -21,7 +21,6 @@ static void	clear_mlx(t_game *g)
 {
 	mlx_clear_window(g->mlx->mlx_ptr, g->mlx->win_ptr);
 	clear_images(g);
-	clear_numbers(g);
 	clear_player(g);
 	mlx_destroy_window(g->mlx->mlx_ptr, g->mlx->win_ptr);
 	mlx_destroy_display(g->mlx->mlx_ptr);

@@ -63,6 +63,7 @@ typedef struct s_game
 	t_img		*esc;
 	t_img		*col;
 	t_img		*player_img;
+	t_img		*patrol;
 	t_img		*numbers;
 	t_entity	*player;
 }	t_game;
@@ -84,12 +85,13 @@ void	init_char(t_game *g);
 void	init_escapes(t_game *g);
 void	init_numbers(t_game *g);
 void	init_player(t_game *g);
+void	init_patrol(t_game *g);
 
 //files prototypes
 void	ft_files_inspector(t_game *g, char **argv);
 void	ft_map_parsing(t_game *g);
 
-//window
+//window prototypes
 void	open_window(t_game *g);
 void	ft_import_images(t_game *g);
 void	print_image(t_game *g);
@@ -99,7 +101,7 @@ void	put_charac(t_game *g, int y, int x);
 void	put_tiles(t_game *g, int y, int x);
 void	put_wall(t_game *g, int y, int x);
 
-//movement
+//movement prototypes
 void	move_right(t_game *g, int x, int y);
 void	move_left(t_game *g, int x, int y);
 void	move_up(t_game *g, int x, int y);
