@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/06/07 15:10:47 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/06/07 15:43:27 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,8 @@ INIT = game_init.c				\
 WINDOW = open_window.c			\
 		 ft_import_images.c		\
 		 print_image.c			\
-		 map_printer.c
+		 map_printer.c			\
+		 map_printer2.c
 
 MOVEMENT = ft_move_player.c			\
 		   movement_processing.c	\

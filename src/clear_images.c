@@ -21,12 +21,12 @@ static void	clear_player_patrol_numbers(t_game *g)
 		mlx_destroy_image(g->mlx->mlx_ptr, g->player_img[i].img);
 	i = -1;
 	while (++i < 4)
-		mlx_destroy_image(g->mlx->mlx_ptr, g->patrol[i].img);
+		mlx_destroy_image(g->mlx->mlx_ptr, g->patrol_img[i].img);
 	i = -1;
 	while (++i < 10)
 		mlx_destroy_image(g->mlx->mlx_ptr, g->numbers[i].img);
 	free(g->player_img);
-	free(g->patrol);
+	free(g->patrol_img);
 	free(g->numbers);
 }
 

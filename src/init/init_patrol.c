@@ -18,8 +18,8 @@ void	init_patrol(t_game *game)
 	int		i;
 	t_mlx	*m;
 
-	game->patrol = malloc(sizeof(t_img) * 4);
-	p = game->patrol;
+	game->patrol_img = malloc(sizeof(t_img) * 4);
+	p = game->patrol_img;
 	m = game->mlx;
 	p[0].p = "images/Patrol_Left.xpm";
 	p[1].p = "images/Patrol_Up.xpm";

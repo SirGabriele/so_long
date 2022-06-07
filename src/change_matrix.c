@@ -6,11 +6,37 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 20:16:50 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/06/02 18:33:47 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/06/07 15:45:13 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	add_patrol(t_game *g)
+{
+	int	y;
+	int	x;
+
+	y = -1;
+	while (++y < g->map->y)
+	{
+		x = -1;
+		while (++x < g->map->x)
+		{
+			if (g->map->matrix[y][x] == 'E')
+			{
+				if (g->map->matrix[y - 1][x] == '0')
+					g->map->matrix[y - 1][x] = 'U';
+				else if (g->map->matrix[y + 1][x] == '0')
+					g->map->matrix[y + 1][x] = 'D';
+				else if (g->map->matrix[y][x - 1] == '0')
+					g->map->matrix[y][x - 1] = 'L';
+				else if (g->map->matrix[y][x + 1] == '0')
+					g->map->matrix[y][x + 1] = 'R';
+			}
+		}
+	}
+}
 
 void	change_matrix(t_game *g)
 {
@@ -37,4 +63,5 @@ void	change_matrix(t_game *g)
 				g->map->matrix[y][x] = '0';
 		}
 	}
+	add_patrol(g);
 }

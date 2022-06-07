@@ -20,6 +20,8 @@ static int	can_player_move(t_game *g, int dest_x, int dest_y)
 		return ('C');
 	if (g->map->matrix[dest_y][dest_x] == 'E')
 		return ('E');
+	if (g->map->matrix[dest_y][dest_x] == 'F')
+		clear_game(g);
 	return (0);
 }
 
@@ -37,6 +39,7 @@ void	move_right(t_game *g, int x, int y)
 	if (res != 1)
 	{
 		display_steps(g, ++(g->player->steps));
+//		move_right_patrol(g);
 		movement_processing(g, res, x, y - 1);
 		if (g->map->matrix[y - 1][x - 1] == 'E')
 			ft_put(m, g->esc[0].img, (x++) * 64, y * 64);
@@ -63,6 +66,7 @@ void	move_left(t_game *g, int x, int y)
 	if (res != 1)
 	{
 		display_steps(g, ++(g->player->steps));
+//		move_left_patrol(g);
 		movement_processing(g, res, x - 2, y - 1);
 		if (g->map->matrix[y - 1][x - 1] == 'E')
 			ft_put(m, g->esc[0].img, (x--) * 64, y * 64);
@@ -89,6 +93,7 @@ void	move_up(t_game *g, int x, int y)
 	if (res != 1)
 	{
 		display_steps(g, ++(g->player->steps));
+//		move_up_patrol(g);
 		movement_processing(g, res, x - 1, y - 2);
 		if (g->map->matrix[y - 1][x - 1] == 'E')
 			ft_put(m, g->esc[0].img, x * 64, (y--) * 64);
@@ -115,6 +120,7 @@ void	move_down(t_game *g, int x, int y)
 	if (res != 1)
 	{
 		display_steps(g, ++(g->player->steps));
+//		move_down_patrol(g);
 		movement_processing(g, res, x - 1, y);
 		if (g->map->matrix[y - 1][x - 1] == 'E')
 			ft_put(m, g->esc[0].img, x * 64, (y++) * 64);

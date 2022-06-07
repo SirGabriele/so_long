@@ -14,16 +14,21 @@
 
 static void	if_forest(t_game *g, int y, int x)
 {
-	if (g->map->matrix[y][x] == '1')
+	char c;
+	
+	c = g->map->matrix[y][x];
+	if (c == '1')
 		put_wall(g, y + 1, x + 1);
-	else if (g->map->matrix[y][x] == '0')
+	else if (c == '0')
 		put_tiles(g, y + 1, x + 1);
-	else if (g->map->matrix[y][x] == 'P')
+	else if (c == 'P')
 		put_charac(g, y + 1, x + 1);
-	else if (g->map->matrix[y][x] == 'E')
+	else if (c == 'E')
 		put_escape(g, y + 1, x + 1);
-	else if (g->map->matrix[y][x] == 'C')
+	else if (c == 'C')
 		put_collects(g, y + 1, x + 1);
+	else if (c == 'U' || c == 'D' || c == 'L' || c == 'R')
+		put_patrol(g, y + 1, x + 1, c);
 }
 
 void	print_image(t_game *g)

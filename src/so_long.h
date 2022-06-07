@@ -36,12 +36,18 @@ typedef struct s_img
 	int		h;
 }	t_img;
 
-typedef struct s_entity
+typedef struct s_player
 {
 	int	x;
 	int	y;
 	int	steps;
-}	t_entity;
+}	t_player;
+
+typedef struct s_patrol
+{
+	int	x;
+	int	y;
+}	t_patrol;
 
 typedef struct s_map
 {
@@ -63,9 +69,10 @@ typedef struct s_game
 	t_img		*esc;
 	t_img		*col;
 	t_img		*player_img;
-	t_img		*patrol;
+	t_img		*patrol_img;
 	t_img		*numbers;
-	t_entity	*player;
+	t_player	*player;
+	t_patrol	*patrol;
 }	t_game;
 
 void	ft_error(int error, t_game *g);
@@ -100,6 +107,7 @@ void	put_escape(t_game *g, int y, int x);
 void	put_charac(t_game *g, int y, int x);
 void	put_tiles(t_game *g, int y, int x);
 void	put_wall(t_game *g, int y, int x);
+void	put_patrol(t_game *g, int y, int x, char c);
 
 //movement prototypes
 void	move_right(t_game *g, int x, int y);
