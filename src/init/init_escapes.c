@@ -19,11 +19,14 @@ void	init_escapes(t_game *game)
 	t_mlx	*m;
 
 	m = game->mlx;
-	game->esc = malloc(sizeof(t_img) * 1);
+	game->esc = malloc(sizeof(t_img) * 4);
 	e = game->esc;
-	e[0].p = "images/O_Up.xpm";
+	e[0].p = "images/O_Left.xpm";
+	e[1].p = "images/O_Up.xpm";
+	e[2].p = "images/O_Right.xpm";
+	e[3].p = "images/O_Down.xpm";
 	i = -1;
-	while (++i < 1)
+	while (++i < 4)
 	{
 		e[i].w = 64;
 		e[i].h = 64;

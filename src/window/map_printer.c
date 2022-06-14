@@ -38,6 +38,8 @@ void	put_escape(t_game *g, int y, int x)
 	x2 = x * 64;
 	y2 = y * 64;
 	mlx_put_image_to_window(m->mlx_ptr, m->win_ptr, e[0].img, x2, y2);
+	g->map->esc_x = x;
+	g->map->esc_y = y;
 }
 
 void	put_charac(t_game *g, int y, int x)

@@ -17,13 +17,17 @@ int	deal_key(int key, t_game *game)
 	if (key == XK_Escape)
 		clear_game(game);
 	else if (key == XK_d || key == XK_Right)
-		move_right(game, game->player->x, game->player->y);
+		move_right(game);
+		//move_right(game, game->player->x, game->player->y);
 	else if (key == XK_a || key == XK_Left)
-		move_left(game, game->player->x, game->player->y);
+		move_left(game);
+		//move_left(game, game->player->x, game->player->y);
 	else if (key == XK_w || key == XK_Up)
-		move_up(game, game->player->x, game->player->y);
+		move_up(game);
+		//move_up(game, game->player->x, game->player->y);
 	else if (key == XK_s || key == XK_Down)
-		move_down(game, game->player->x, game->player->y);
+		move_down(game);
+		//move_down(game, game->player->x, game->player->y);
 	return (0);
 }
 

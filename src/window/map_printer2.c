@@ -26,6 +26,7 @@ void	put_patrol(t_game *g, int y, int x, char c)
 	g->patrol = malloc(sizeof(t_patrol));
 	g->patrol->x = x;
 	g->patrol->y = y;
+	g->patrol->steps = 0;
 	if (c == 'U')
 		ft_put(m, p[1].img, x2, y2);
 	else if (c == 'D')

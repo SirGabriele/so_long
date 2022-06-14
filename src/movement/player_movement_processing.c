@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_init.c                                         :+:      :+:    :+:   */
+/*   player_movement_processing.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/26 15:47:25 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/05/26 18:07:29 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/05/31 16:51:47 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/05/31 17:58:31 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	map_init(t_map *map)
+void	player_movement_processing(t_game *g, int res, int dest_x, int dest_y)
 {
-	map->name = NULL;
-	map->x = 0;
-	map->y = 0;
-	map->matrix = NULL;
-	map->nb_starts = 0;
-	map->nb_esc = 0;
-	map->nb_col = 0;
-	map->esc_x = 0;
-	map->esc_y = 0;
+	if (res == 'C')
+	{
+		g->map->nb_col--;
+		g->map->matrix[dest_y][dest_x] = '0';
+	}
+	else if (res == 'E')
+	{
+		if (g->map->nb_col == 0)
+			clear_game(g);
+	}
 }

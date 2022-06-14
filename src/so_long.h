@@ -47,6 +47,7 @@ typedef struct s_patrol
 {
 	int	x;
 	int	y;
+	int	steps;
 }	t_patrol;
 
 typedef struct s_map
@@ -58,6 +59,8 @@ typedef struct s_map
 	int				nb_starts;
 	int				nb_esc;
 	int				nb_col;
+	int				esc_x;
+	int				esc_y;
 }	t_map;
 
 typedef struct s_game
@@ -110,11 +113,25 @@ void	put_wall(t_game *g, int y, int x);
 void	put_patrol(t_game *g, int y, int x, char c);
 
 //movement prototypes
-void	move_right(t_game *g, int x, int y);
-void	move_left(t_game *g, int x, int y);
-void	move_up(t_game *g, int x, int y);
-void	move_down(t_game *g, int x, int y);
+void	move_player_right(t_game *g, int x, int y);
+void	move_player_left(t_game *g, int x, int y);
+void	move_player_up(t_game *g, int x, int y);
+void	move_player_down(t_game *g, int x, int y);
 void	movement_processing(t_game *g, int res, int dest_y, int dest_x);
 void	display_steps(t_game *g, int steps);
+
+//moves prototypes
+void	move_up(t_game *g);
+void	move_left(t_game *g);
+void	move_down(t_game *g);
+void	move_right(t_game *g);
+
+//sprite management prototypes
+void	erase_sprite_previous_pos(t_game *g);
+void	add_sprite_new_pos(t_game *g);
+void	add_patrol_left(t_game *g);
+void	add_patrol_up(t_game *g);
+void	add_patrol_right(t_game *g);
+void	add_patrol_down(t_game *g);
 
 #endif
