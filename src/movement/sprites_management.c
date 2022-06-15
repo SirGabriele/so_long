@@ -12,31 +12,43 @@
 
 #include "../so_long.h"
 
-static void	change_dir_patrol(t_game *g)
+static int	can_patrol_move(t_game *g)
 {
 	if (g->patrol->steps == 0)
 	{
 		if (g->map->matrix[g->patrol->y - 1][g->patrol->x - 2] == '0')
-			return;
+			return (0);
 		g->patrol->steps = 1;
 	}
 	if (g->patrol->steps == 1)
 	{
 		if (g->map->matrix[g->patrol->y - 2][g->patrol->x - 1] == '0')
-			return;
+			return (0);
 		g->patrol->steps = 2;
 	}
 	if (g->patrol->steps == 2)
 	{
 		if (g->map->matrix[g->patrol->y - 1][g->patrol->x] == '0')
-			return;
+			return (0);
 		g->patrol->steps = 3;
 	}
 	if (g->patrol->steps == 3)
 	{
 		if (g->map->matrix[g->patrol->y][g->patrol->x - 1] == '0')
-			return;
+			return (0);
 		g->patrol->steps = 0;
+	}
+	return (1);
+}
+
+static void	change_dir_patrol(t_game *g)
+{
+	int	res;
+	
+	res = can_patrol_move(g);
+	while (res != 0)
+	{
+		res = can_patrol_move(g);
 	}
 }
 

@@ -33,6 +33,8 @@ static void	add_patrol(t_game *g)
 					g->map->matrix[y][x - 1] = 'L';
 				else if (g->map->matrix[y][x + 1] == '0')
 					g->map->matrix[y][x + 1] = 'R';
+				else
+					ft_error(26, g);
 			}
 		}
 	}

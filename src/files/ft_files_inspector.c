@@ -54,8 +54,8 @@ static void	ft_count_map_x(t_game *g)
 		if (line == NULL)
 			break ;
 		i = -1;
-		g->map->matrix[count] = ft_calloc(ft_strlen(line), sizeof(char));
-		while (line[++i] != '\n')
+		g->map->matrix[count] = ft_calloc(ft_strlen(line) + 1, sizeof(char));
+		while (line[++i] != '\n' && line[i] != '\0')
 			g->map->matrix[count][i] = line[i];
 		g->map->x = i;
 		free(line);

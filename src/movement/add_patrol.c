@@ -26,8 +26,8 @@ void	add_patrol_left(t_game *g)
 	ft_put(g->mlx, g->patrol_img[0].img, x * 64, y * 64);
 	g->map->matrix[y - 1][x - 1] = 'F';
 	g->patrol->x = x;
-	if (g->map->matrix[y - 1][x - 1] == 'P')
-		clear_game(g);
+//	if (g->patrol->y == g->player->y && g->patrol->x == g->player->x)
+//		ft_error(30, g);
 }
 
 void	add_patrol_up(t_game *g)
@@ -44,8 +44,8 @@ void	add_patrol_up(t_game *g)
 	ft_put(g->mlx, g->patrol_img[1].img, x * 64, y * 64);
 	g->map->matrix[y - 1][x - 1] = 'F';
 	g->patrol->y = y;
-	if (g->map->matrix[y - 1][x - 1] == 'P')
-		clear_game(g);
+//	if (g->patrol->y == g->player->y && g->patrol->x == g->player->x)
+//		ft_error(30, g);
 }
 
 void	add_patrol_right(t_game *g)
@@ -63,8 +63,8 @@ void	add_patrol_right(t_game *g)
 	ft_put(g->mlx, g->patrol_img[2].img, x * 64, y * 64);
 	g->map->matrix[y - 1][x - 1] = 'F';
 	g->patrol->x = x;
-	if (x == g->player->x && y == g->player->y)
-		clear_game(g);
+//	if (g->patrol->y == g->player->y && g->patrol->x == g->player->x)
+//		ft_error(30, g);
 }
   
 void	add_patrol_down(t_game *g)
@@ -81,7 +81,7 @@ void	add_patrol_down(t_game *g)
 	ft_put(g->mlx, g->patrol_img[3].img, x * 64, y * 64);
 	g->map->matrix[y - 1][x - 1] = 'F';
 	g->patrol->y = y;
-	if (g->map->matrix[y - 1][x - 1] == 'P')
-		clear_game(g);
+//	if (g->patrol->y == g->player->y && g->patrol->x == g->player->x)
+//		ft_error(30, g);
 }
   

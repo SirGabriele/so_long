@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/06/09 20:16:32 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/06/14 13:56:26 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,12 +40,13 @@ WINDOW = open_window.c			\
 		 map_printer.c			\
 		 map_printer2.c
 
-MOVEMENT = ft_move_player.c			\
-		   movement_processing.c	\
-		   display_steps.c			\
-		   add_patrol.c				\
-		   moves.c					\
-		   sprites_management.c
+MOVEMENT = ft_move_player.c				\
+		   movement_processing.c		\
+		   display_steps.c				\
+		   add_patrol.c					\
+		   moves.c						\
+		   sprites_management.c			\
+		   player_movement_processing.c
 
 SRCS = $(addprefix src/, $(SRC))		     \
 	   $(addprefix src/files/, $(FILES))   \

@@ -22,6 +22,6 @@ void	movement_processing(t_game *g, int res, int dest_x, int dest_y)
 	else if (res == 'E')
 	{
 		if (g->map->nb_col == 0)
-			clear_game(g);
+			ft_error(31, g);
 	}
 }
