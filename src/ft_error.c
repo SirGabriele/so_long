@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:43:24 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/05/27 14:37:03 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/06/16 14:35:42 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static void	error_base(int error)
 	error_base[7] = "";
 	error_base[8] = "";
 	error_base[9] = "";
+	ft_printf("Error\n");
 	ft_printf("[ BASE ERROR DETECTED ] : %s.\n", error_base[error]);
 }
 
@@ -42,6 +43,7 @@ static void	error_file(int error)
 	error_file[7] = "";
 	error_file[8] = "";
 	error_file[9] = "";
+	ft_printf("Error\n");
 	ft_printf("[ FILE ERROR DETECTED ] : %s.\n", error_file[error % 10]);
 }
 
@@ -59,6 +61,7 @@ static void	error_map(int error)
 	error_map[7] = "";
 	error_map[8] = "";
 	error_map[9] = "";
+	ft_printf("Error\n");
 	ft_printf("[ MAP ERROR DETECTED ] : %s.\n", error_map[error % 10]);
 }
 
@@ -66,8 +69,8 @@ static void	error_endgame(int error)
 {
 	char	*error_endgame[11];
 
-	error_endgame[0] = "Gaspard got hit by the lawnmower, suffered a lot and eventually died. How sad... Try again !";
-	error_endgame[1] = "You completed the TIG and told Olivier, congratulations Gaspard !";
+	error_endgame[0] = "Gaspard got hit by the lawnmower and died... How sad.";
+	error_endgame[1] = "You completed the TIG and told Olivier, congrats !";
 	error_endgame[2] = "";
 	error_endgame[3] = "";
 	error_endgame[4] = "";
@@ -76,6 +79,7 @@ static void	error_endgame(int error)
 	error_endgame[7] = "";
 	error_endgame[8] = "";
 	error_endgame[9] = "";
+	ft_printf("Error\n");
 	ft_printf("[ Game stopped ] : %s.\n", error_endgame[error % 10]);
 }
 

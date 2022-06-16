@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 20:38:15 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/06/02 18:35:01 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/06/16 14:27:20 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ void	move_player_right(t_game *g, int x, int y)
 	{
 		display_steps(g, ++(g->player->steps));
 		movement_processing(g, res, x, y - 1);
-/*		if (g->map->matrix[y - 1][x - 1] == 'E')
-			ft_put(m, g->esc[0].img, (x++) * 64, y * 64);
-		else
-			ft_put(m, t[0].img, (x++) * 64, y * 64);*/
 		ft_put(m, r[2].img, (++x) * 64, y * 64);
 		g->player->x = x;
 	}
@@ -64,10 +60,6 @@ void	move_player_left(t_game *g, int x, int y)
 	{
 		display_steps(g, ++(g->player->steps));
 		movement_processing(g, res, x - 2, y - 1);
-/*		if (g->map->matrix[y - 1][x - 1] == 'E')
-			ft_put(m, g->esc[0].img, (x--) * 64, y * 64);
-		else
-			ft_put(m, t[0].img, (x--) * 64, y * 64);*/
 		ft_put(m, l[0].img, (--x) * 64, y * 64);
 		g->player->x = x;
 	}
@@ -90,10 +82,6 @@ void	move_player_up(t_game *g, int x, int y)
 	{
 		display_steps(g, ++(g->player->steps));
 		movement_processing(g, res, x - 1, y - 2);
-/*		if (g->map->matrix[y - 1][x - 1] == 'E')
-			ft_put(m, g->esc[0].img, x * 64, (y--) * 64);
-		else
-			ft_put(m, t[0].img, x * 64, (y--) * 64);*/
 		ft_put(m, u[1].img, x * 64, (--y) * 64);
 		g->player->y = y;
 	}
@@ -116,10 +104,6 @@ void	move_player_down(t_game *g, int x, int y)
 	{
 		display_steps(g, ++(g->player->steps));
 		movement_processing(g, res, x - 1, y);
-/*		if (g->map->matrix[y - 1][x - 1] == 'E')
-			ft_put(m, g->esc[0].img, x * 64, (y++) * 64);
-		else
-			ft_put(m, t[0].img, x * 64, (y++) * 64);*/
 		ft_put(m, d[3].img, x * 64, (++y) * 64);
 		g->player->y = y;
 	}

@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 14:34:43 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/05/30 16:57:17 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/06/16 14:26:36 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static void	if_forest(t_game *g, int y, int x)
 {
-	char c;
-	
+	char	c;
+
 	c = g->map->matrix[y][x];
 	if (c == '1')
 		put_wall(g, y + 1, x + 1);

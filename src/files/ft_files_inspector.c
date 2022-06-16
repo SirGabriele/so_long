@@ -33,7 +33,7 @@ static void	ft_count_map_y(t_game *g)
 			g->map->y++;
 		}
 	}
-	if (buf[0] != '\n')
+	if (buf[0] != '\n' && buf[0] != '\0')
 		g->map->y++;
 	if (close(fd) == -1)
 		ft_error(12, g);

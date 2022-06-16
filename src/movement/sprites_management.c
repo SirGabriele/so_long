@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 14:00:58 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/06/09 20:09:34 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/06/16 14:28:26 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	can_patrol_move(t_game *g)
 static void	change_dir_patrol(t_game *g)
 {
 	int	res;
-	
+
 	res = can_patrol_move(g);
 	while (res != 0)
 	{
@@ -57,7 +57,7 @@ static void	change_dir_patrol(t_game *g)
 
 void	add_sprite_new_pos(t_game *g)
 {
-	change_dir_patrol(g);	
+	change_dir_patrol(g);
 	if (g->patrol->steps == 0)
 		add_patrol_left(g);
 	else if (g->patrol->steps == 1)
