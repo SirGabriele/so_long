@@ -16,9 +16,9 @@ static void	error_base(int error)
 {
 	char	*error_base[11];
 
-	error_base[1] = "Wrong number of arguments";
-	error_base[2] = "mlx_ptr == NULL";
-	error_base[3] = "win_ptr == NULL";
+	error_base[1] = "Wrong number of arguments.";
+	error_base[2] = "mlx_ptr == NULL.";
+	error_base[3] = "win_ptr == NULL.";
 	error_base[4] = "";
 	error_base[5] = "";
 	error_base[6] = "";
@@ -33,10 +33,10 @@ static void	error_file(int error)
 {
 	char	*error_file[11];
 
-	error_file[0] = "Need a Map with '.ber' extension";
-	error_file[1] = "Encountered an issue while opening file";
-	error_file[2] = "Encountered an issue while closing file";
-	error_file[3] = "File is empty";
+	error_file[0] = "Need a Map with '.ber' extension.";
+	error_file[1] = "Encountered an issue while opening file.";
+	error_file[2] = "Encountered an issue while closing file.";
+	error_file[3] = "File is empty.";
 	error_file[4] = "";
 	error_file[5] = "";
 	error_file[6] = "";
@@ -51,13 +51,13 @@ static void	error_map(int error)
 {
 	char	*error_map[11];
 
-	error_map[0] = "Map's height is too short";
-	error_map[1] = "Map's width is too short";
-	error_map[2] = "Map's boundaries must be closed";
-	error_map[3] = "Provided map is not a perfect rectangle";
-	error_map[4] = "Unknown symbol on the map";
-	error_map[5] = "Map requires at least one E, one P and one C";
-	error_map[6] = "Please let at least one free space around the escape";
+	error_map[0] = "Map's height is too short.";
+	error_map[1] = "Map's width is too short.";
+	error_map[2] = "Map's boundaries must be closed.";
+	error_map[3] = "Provided map is not a perfect rectangle.";
+	error_map[4] = "Unknown symbol on the map.";
+	error_map[5] = "Map requires at least one E, one P and one C.";
+	error_map[6] = "Please let at least one free space around the escape.";
 	error_map[7] = "";
 	error_map[8] = "";
 	error_map[9] = "";
@@ -69,7 +69,7 @@ static void	error_endgame(int error)
 {
 	char	*error_endgame[11];
 
-	error_endgame[0] = "Gaspard got hit by the lawnmower and died... How sad.";
+	error_endgame[0] = "Gaspard got hit by the lawnmower and died... How sad...";
 	error_endgame[1] = "You completed the TIG and told Olivier, congrats !";
 	error_endgame[2] = "";
 	error_endgame[3] = "";
@@ -79,8 +79,7 @@ static void	error_endgame(int error)
 	error_endgame[7] = "";
 	error_endgame[8] = "";
 	error_endgame[9] = "";
-	ft_printf("Error\n");
-	ft_printf("[ Game stopped ] : %s.\n", error_endgame[error % 10]);
+	ft_printf("[ Game stopped ] : %s\n", error_endgame[error % 10]);
 }
 
 void	ft_error(int error, t_game *game)

@@ -21,7 +21,7 @@ void	init_walls(t_game *game)
 	game->walls = malloc(sizeof(t_img) * 1);
 	w = game->walls;
 	m = game->mlx;
-	w[0].p = "images/lava.xpm";
+	w[0].p = "images/tree.xpm";
 	i = -1;
 	while (++i < 1)
 	{
