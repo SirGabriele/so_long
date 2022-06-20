@@ -34,7 +34,9 @@ void	clear_images(t_game *g)
 {
 	int	i;
 
-	mlx_destroy_image(g->mlx->mlx_ptr, g->walls[0].img);
+	i = -1;
+	while (++i < 2)
+		mlx_destroy_image(g->mlx->mlx_ptr, g->walls[i].img);
 	mlx_destroy_image(g->mlx->mlx_ptr, g->tiles[0].img);
 	mlx_destroy_image(g->mlx->mlx_ptr, g->col[0].img);
 	i = -1;

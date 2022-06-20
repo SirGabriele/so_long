@@ -53,5 +53,6 @@ void	open_window(t_game *game)
 	print_image(game);
 	mlx_key_hook(mlx2->win_ptr, deal_key, game);
 	mlx_hook(mlx2->win_ptr, DestroyNotify, 0, destroy_notif, game);
+	mlx_loop_hook(mlx2->mlx_ptr, wall_animation, game);
 	mlx_loop(mlx2->mlx_ptr);
 }

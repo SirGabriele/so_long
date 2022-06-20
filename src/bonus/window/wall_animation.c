@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_walls.c                                       :+:      :+:    :+:   */
+/*   wall_animation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 13:22:51 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/05/30 13:32:51 by kbrousse         ###   ########.fr       */
+/*   Created: 2022/06/20 17:26:18 by kbrousse          #+#    #+#             */
+/*   Updated: 2022/06/20 17:59:50 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-void	init_walls(t_game *game)
+int	wall_animation(t_game *g)
 {
-	t_img	*w;
-	int		i;
-	t_mlx	*m;
+	static int	rate = 0;
+	static int	state = 0;
+	int	y;
+	int	x;
 
-	game->walls = malloc(sizeof(t_img) * 2);
-	w = game->walls;
-	m = game->mlx;
-	w[0].p = "images/tree.xpm";
-	w[1].p = "images/tree_with_apples.xpm";
-	i = -1;
-	while (++i < 2)
+	y = -1;
+	if (rate == 100000)
 	{
-		w[i].w = 64;
-		w[i].h = 64;
-		w[i].img = mlx_xpm_file_to_image(m->mlx_ptr, w[i].p, &w[i].w, &w[i].h);
+		state = state % 2;
+		while (++y < g->map->y)
+		{
+			x = -1;
+			while (++x < g->map->x)
+			{
+				if (g->map->matrix[y][x] == '1')
+					ft_put(g->mlx, g->walls[state].img, (x + 1) * 64, (y + 1) * 64);
+			}
+		}
+		rate = 0;
+		state++;
 	}
+	rate++;
+	return (0);
 }

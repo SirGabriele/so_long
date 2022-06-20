@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/06/16 19:23:41 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/06/20 17:21:13 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,8 @@ WINDOW_BONUS = open_window.c			\
 		 	   ft_import_images.c		\
 		 	   print_image.c			\
 		 	   map_printer.c			\
-		 	   map_printer2.c
+		 	   map_printer2.c			\
+			   wall_animation.c
 
 MOVEMENT_MANDA = ft_move_player.c				\
 		   		 movement_processing.c			\

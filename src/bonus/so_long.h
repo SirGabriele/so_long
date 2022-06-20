@@ -111,6 +111,7 @@ void	put_charac(t_game *g, int y, int x);
 void	put_tiles(t_game *g, int y, int x);
 void	put_wall(t_game *g, int y, int x);
 void	put_patrol(t_game *g, int y, int x, char c);
+int	wall_animation(t_game *g);
 
 //movement prototypes
 void	move_player_right(t_game *g, int x, int y);

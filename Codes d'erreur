@@ -1,8 +1,0 @@
-0 - OK
-1 - 9 Erreur liée à la base (nb arguments, mauvais argv etc)
-	0 - wrong number of arguments
-10 - 19 Erreur liée au fichier (contenu, P/E/C, pas un rectangle, pas fermé etc)
-20 - 29 Erreur liée à la map (rectangle, )
-
-
-
