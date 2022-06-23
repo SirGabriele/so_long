@@ -12,24 +12,10 @@
 
 #include "../so_long.h"
 
-static void	print_steps(t_game *g, int steps, int x, int y)
+void	display_steps(t_game *g)
 {
-	int	res;
-
-	res = 0;
-	while (steps > 0)
-	{
-		res = steps % 10;
-		ft_put(g->mlx, g->numbers[res].img, x + 25, y);
-		x -= 16;
-		steps /= 10;
-	}
-}
-
-void	display_steps(t_game *g, int steps)
-{
-	int	x;
-
-	x = g->map->x;
-	print_steps(g, steps, (x + 1) * 64, 25);
+	g->player->steps++;
+	if (g->player->steps > 2000000000)
+		g->player->steps = 1;
+	ft_printf("%d\n", g->player->steps);
 }

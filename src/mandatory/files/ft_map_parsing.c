@@ -21,7 +21,7 @@ static void	check_symbol(char c, t_game *g)
 	else if (c == 'E')
 		g->map->nb_esc++;
 	else if (c == 'C')
-		g->map->nb_col++;	
+		g->map->nb_col++;
 }
 
 static void	check_first_last_lines(char *line, t_game *g)

@@ -6,7 +6,7 @@
 /*   By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:43:24 by kbrousse          #+#    #+#             */
-/*   Updated: 2022/06/16 14:35:42 by kbrousse         ###   ########.fr       */
+/*   Updated: 2022/06/22 13:53:06 by kbrousse         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static void	error_endgame(int error)
 {
 	char	*error_endgame[11];
 
-	error_endgame[0] = "Gaspard got hit by the lawnmower and died... How sad...";
+	error_endgame[0] = "Gaspard got hit by the lawnmower and died. How sad...";
 	error_endgame[1] = "You completed the TIG and told Oliver, congrats !";
 	error_endgame[2] = "";
 	error_endgame[3] = "";

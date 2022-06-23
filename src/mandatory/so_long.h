@@ -108,7 +108,7 @@ void	move_player_left(t_game *g, int x, int y);
 void	move_player_up(t_game *g, int x, int y);
 void	move_player_down(t_game *g, int x, int y);
 void	movement_processing(t_game *g, int res, int dest_y, int dest_x);
-void	display_steps(t_game *g, int steps);
+void	display_steps(t_game *g);
 
 //moves prototypes
 void	move_up(t_game *g);

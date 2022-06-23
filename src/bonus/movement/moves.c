@@ -14,6 +14,7 @@
 
 static int	check_player(t_game *g, int dest_x, int dest_y)
 {
+	display_steps(g);
 	if (g->map->matrix[dest_y][dest_x] == 'E')
 	{
 		if (g->map->nb_col == 0)

@@ -26,7 +26,7 @@ static void	error_base(int error)
 	error_base[8] = "";
 	error_base[9] = "";
 	ft_printf("Error\n");
-	ft_printf("[ BASE ERROR DETECTED ] : %s.\n", error_base[error]);
+	ft_printf("[ BASE ERROR DETECTED ] : %s\n", error_base[error]);
 }
 
 static void	error_file(int error)
@@ -44,7 +44,7 @@ static void	error_file(int error)
 	error_file[8] = "";
 	error_file[9] = "";
 	ft_printf("Error\n");
-	ft_printf("[ FILE ERROR DETECTED ] : %s.\n", error_file[error % 10]);
+	ft_printf("[ FILE ERROR DETECTED ] : %s\n", error_file[error % 10]);
 }
 
 static void	error_map(int error)
@@ -62,7 +62,7 @@ static void	error_map(int error)
 	error_map[8] = "";
 	error_map[9] = "";
 	ft_printf("Error\n");
-	ft_printf("[ MAP ERROR DETECTED ] : %s.\n", error_map[error % 10]);
+	ft_printf("[ MAP ERROR DETECTED ] : %s\n", error_map[error % 10]);
 }
 
 static void	error_endgame(int error)

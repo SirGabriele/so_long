@@ -70,7 +70,7 @@ static void	ft_count_map_x(t_game *g)
 
 static void	ft_define_map(char *argv, t_game *g)
 {
-	g->map->name = ft_strjoin("maps/", argv);
+	g->map->name = argv;
 	ft_count_map_y(g);
 	if (g->map->y < 3)
 		ft_error(20, g);

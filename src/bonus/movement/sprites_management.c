@@ -52,9 +52,6 @@ static void	change_dir_patrol(t_game *g)
 	}
 }
 
-/*add the new escape sprite on the screen and its letter on the matrix*/
-/*same for the new player's sprite*/
-
 void	add_sprite_new_pos(t_game *g)
 {
 	change_dir_patrol(g);
@@ -67,9 +64,6 @@ void	add_sprite_new_pos(t_game *g)
 	else if (g->patrol->steps == 3)
 		add_patrol_down(g);
 }
-
-/*erase the previous escape sprite on the screen and its letter on the matrix*/
-/*same for the previous player's sprite*/
 
 void	erase_sprite_previous_pos(t_game *g)
 {

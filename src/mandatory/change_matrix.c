@@ -18,22 +18,18 @@ void	change_matrix(t_game *g)
 	int	x;
 	int	count_p;
 	int	count_e;
-	int	random[2];
 
-	srand(time(NULL));
-	random[0] = (int)(rand() / (double)RAND_MAX * (g->map->nb_starts - 1));
-	random[1] = (int)(rand() / (double)RAND_MAX * (g->map->nb_esc - 1));
 	y = -1;
-	count_p = 0;
-	count_e = 0;
+	count_p = 1;
+	count_e = 1;
 	while (++y < g->map->y)
 	{
 		x = -1;
 		while (++x < g->map->x)
 		{
-			if (g->map->matrix[y][x] == 'P' && count_p++ != random[0])
+			if (g->map->matrix[y][x] == 'P' && count_p++ != 1)
 				g->map->matrix[y][x] = '0';
-			else if (g->map->matrix[y][x] == 'E' && count_e++ != random[1])
+			else if (g->map->matrix[y][x] == 'E' && count_e++ != 1)
 				g->map->matrix[y][x] = '0';
 		}
 	}

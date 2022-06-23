@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 
 	g = malloc(sizeof(t_game));
 	game_init(g);
-	if (argc < 2)
+	if (argc != 2)
 		ft_error(1, g);
 	ft_files_inspector(g, ++argv);
 	change_matrix(g);

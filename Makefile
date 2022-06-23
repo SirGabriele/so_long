@@ -6,11 +6,13 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/06/20 17:21:13 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/06/23 16:35:45 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
+
+BONUS = .bonus_verif.txt
 
 LIBFT = libft/libft.a
 
@@ -61,16 +63,14 @@ MOVEMENT_MANDA = ft_move_player.c				\
 				 display_steps.c				\
 				 add_escape.c					\
 		   		 moves.c						\
-		   		 sprites_management.c			\
-		   		 player_movement_processing.c
+		   		 sprites_management.c			
 		  
 MOVEMENT_BONUS = ft_move_player.c				\
 		   		 movement_processing.c			\
 		   		 display_steps.c				\
 		   		 add_patrol.c					\
 		   		 moves.c						\
-		   		 sprites_management.c			\
-		   		 player_movement_processing.c
+		   		 sprites_management.c			
 
 SRCS_MANDA = $(addprefix src/mandatory/, $(SRC))						\
 	   		 $(addprefix src/mandatory/files/, $(FILES))				\
@@ -104,7 +104,7 @@ clean:
 
 fclean: clean
 	@make fclean -C libft --no-print-directory
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(BONUS)
 
 re: fclean all
 
@@ -119,20 +119,18 @@ $(NAME): $(LIBFT) $(OBJS_MANDA)
 	@echo "*          so_long          *"
 	@echo "~*~*~*~*~*~*~*~*~*~*~*~*~*~*~\033[0m"
 
-bonus: $(LIBFT) $(OBJS_BONUS)
+$(BONUS): $(LIBFT) $(OBJS_BONUS) 
 	@$(CC) $(FLAGS) $(OBJS_BONUS) -Llibft -lft -Lminilibx-linux -lmlx_Linux -L/usr/lib -Iminilibx-linux -Ilibft -lXext -lX11 -lm -lz -o $(NAME)
 	@echo "\033[0;32m~*~*~*~*~*~*~*~*~*~*~*~*~*~*~"
 	@echo "*                           *"
 	@echo "~  Compilation terminated!  ~"
 	@echo "*          so_long          *"
 	@echo "~*~*~*~*~*~*~*~*~*~*~*~*~*~*~\033[0m"
+	@touch $(BONUS)
+
+bonus: $(BONUS)
 
 $(LIBFT):
 	@make -C libft --no-print-directory
-
-#	-I libft -I minilibx-linux // chercher les header.h dans autre dossier
-#	-L libft -l ft // chercher les lib.a dans autre dossier
-#	-l (lib)ft abbreviation de lib
-#	-l (lib)mlx
 
 .PHONY: all clean fclean bonus re

@@ -26,10 +26,13 @@ static void	print_steps(t_game *g, int steps, int x, int y)
 	}
 }
 
-void	display_steps(t_game *g, int steps)
+void	display_steps(t_game *g)
 {
 	int	x;
 
 	x = g->map->x;
-	print_steps(g, steps, (x + 1) * 64, 25);
+	g->player->steps++;
+	if (g->player->steps > 2000000000)
+		g->player->steps = 1;
+	print_steps(g, g->player->steps, (x + 1) * 64, 25);
 }

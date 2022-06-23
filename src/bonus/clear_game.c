@@ -34,7 +34,6 @@ static	void	clear_map(t_map *map)
 	int	i;
 
 	i = -1;
-//	free(map->name);
 	if (map->matrix != NULL)
 	{
 		while (map->matrix[++i] != NULL)
