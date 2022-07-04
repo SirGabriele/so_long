@@ -6,7 +6,7 @@
 #    By: kbrousse <kbrousse@student.42angoulem      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/20 10:12:21 by kbrousse          #+#    #+#              #
-#    Updated: 2022/06/23 16:35:45 by kbrousse         ###   ########.fr        #
+#    Updated: 2022/06/23 17:55:25 by kbrousse         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,7 +120,7 @@ $(NAME): $(LIBFT) $(OBJS_MANDA)
 	@echo "~*~*~*~*~*~*~*~*~*~*~*~*~*~*~\033[0m"
 
 $(BONUS): $(LIBFT) $(OBJS_BONUS) 
-	@$(CC) $(FLAGS) $(OBJS_BONUS) -Llibft -lft -Lminilibx-linux -lmlx_Linux -L/usr/lib -Iminilibx-linux -Ilibft -lXext -lX11 -lm -lz -o $(NAME)
+	@$(CC) $(FLAGS) $(OBJS_BONUS) -Llibft -lft -Lminilibx-linux -lmlx_Linux -L/usr/lib -Iminilibx-linux -Ilibft -lXext -lX11 -lm -lz -o $(NAME)	
 	@echo "\033[0;32m~*~*~*~*~*~*~*~*~*~*~*~*~*~*~"
 	@echo "*                           *"
 	@echo "~  Compilation terminated!  ~"

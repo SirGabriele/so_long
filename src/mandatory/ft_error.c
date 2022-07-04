@@ -70,7 +70,7 @@ static void	error_endgame(int error)
 	char	*error_endgame[11];
 
 	error_endgame[0] = "";
-	error_endgame[1] = "You completed the TIG and told Olivier, congrats !";
+	error_endgame[1] = "You completed the TIG and told Oliver, congrats !";
 	error_endgame[2] = "";
 	error_endgame[3] = "";
 	error_endgame[4] = "";
